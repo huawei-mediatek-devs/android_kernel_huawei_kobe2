@@ -2029,7 +2029,7 @@ SYSCALL_DEFINE3(getrandom, char __user *, buf, size_t, count,
 
 	if (!crng_ready()) {
 		if (flags & GRND_NONBLOCK)
-			return -EAGAIN;
+			return urandom_read(NULL, buf, count, NULL);
 		ret = wait_for_random_bytes();
 		if (unlikely(ret))
 			return ret;
