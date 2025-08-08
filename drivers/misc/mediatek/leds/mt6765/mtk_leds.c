@@ -1304,7 +1304,7 @@ int mt_mt65xx_blink_set(struct led_classdev *led_cdev,
 				got_wake_lock = 0;
 			}
 		}else if (led_data->delay_on && !led_data->delay_off) {
-			if ((led_data->cust.mode == MT65XX_LED_MODE_PMIC))
+			if (led_data->cust.mode == MT65XX_LED_MODE_PMIC)
 				mt_brightness_set_pmic(led_data->cust.data, 1, 0);
 		}
 		return -1;
