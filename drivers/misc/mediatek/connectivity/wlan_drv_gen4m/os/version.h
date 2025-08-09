@@ -105,6 +105,10 @@
 					 NIC_DRIVER_SERIAL_VERSION)
 #define NIC_DRIVER_VERSION_STRING       "1.0.1"
 
+#ifndef DRIVER_BUILD_DATE
+#define DRIVER_BUILD_DATE "unknown"
+#endif
+
 /*******************************************************************************
  *                             D A T A   T Y P E S
  *******************************************************************************
