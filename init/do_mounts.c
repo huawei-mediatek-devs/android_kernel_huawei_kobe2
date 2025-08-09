@@ -49,7 +49,7 @@ static int root_wait;
 dev_t ROOT_DEV;
 
 #ifdef CONFIG_ANDROID_SAR_RAMDISK
-static int __initdata android_bootmode;
+int __initdata android_bootmode;
 
 extern int mount_sar_ramdisk(char*);
 

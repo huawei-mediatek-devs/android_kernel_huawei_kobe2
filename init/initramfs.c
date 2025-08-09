@@ -619,11 +619,19 @@ static int __init skip_initramfs_param(char *str)
 }
 __setup("skip_initramfs", skip_initramfs_param);
 
+#ifdef CONFIG_ANDROID_SAR_RAMDISK
+extern int __initdata android_bootmode;
+#endif
+
 static int __init populate_rootfs(void)
 {
 	char *err;
 
+#ifdef CONFIG_ANDROID_SAR_RAMDISK
+	if (android_bootmode != 2) {
+#else
 	if (do_skip_initramfs) {
+#endif
 		if (initrd_start)
 			free_initrd();
 		return default_rootfs();
