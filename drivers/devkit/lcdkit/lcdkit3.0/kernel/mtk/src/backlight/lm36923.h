@@ -21,6 +21,9 @@
 #if defined(CONFIG_HUAWEI_DSM)
 #include <dsm/dsm_pub.h>
 extern struct dsm_client *lcd_dclient;
+#else
+#define DSM_LCD_OVP_ERROR_NO                0xff
+#define DSM_LCD_BACKLIGHT_OCP_ERROR_NO      0xff
 #endif
 
 #ifndef LM_SUCC
