@@ -108,7 +108,9 @@ static void vibrator_enable(unsigned int dur, unsigned int activate)
 
 static void vibrator_oc_handler(void)
 {
+#ifdef CONFIG_HUAWEI_DSM
 	int ret;
+#endif
 
 	pr_debug(VIB_TAG "%s: disable vibr for oc intr happened\n", __func__);
 	vibrator_enable(0, 0);
