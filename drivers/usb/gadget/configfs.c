@@ -1545,7 +1545,9 @@ static void configfs_composite_unbind(struct usb_gadget *gadget)
 	set_gadget_data(gadget, NULL);
 }
 
+#ifdef CONFIG_HW_GADGET
 #include "../../hwusb/hw_gadget/hw_controlrequest_handle.c"
+#endif
 
 #ifdef CONFIG_USB_CONFIGFS_UEVENT
 static int android_setup(struct usb_gadget *gadget,
@@ -1571,8 +1573,10 @@ static int android_setup(struct usb_gadget *gadget,
 		}
 	}
 
+#ifdef CONFIG_HW_GADGET
 	if (value < 0)
 		value = hw_ep0_handler(cdev, c);
+#endif
 
 #ifdef CONFIG_USB_CONFIGFS_F_ACC
 	if (value < 0)
