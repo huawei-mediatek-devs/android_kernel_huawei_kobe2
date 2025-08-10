@@ -3141,6 +3141,28 @@
 		compatible = "mediatek,mt_soc_pcm_voice_usb_echoref";
 	};
 
+	firmware {
+		android {
+			compatible = "android,firmware";
+			fstab {
+				compatible = "android,fstab";
+				vendor {
+					mnt_point = "/vendor";
+					dev = "vendor";
+					type = "erofs";
+					mnt_flags = "ro";
+					status = "ok";
+				};
+				odm {
+					mnt_point = "/odm";
+					dev = "odm";
+					type = "erofs";
+					mnt_flags = "ro";
+					status = "ok";
+				};
+			};
+		};
+	};
 	pmic_clock_buffer_ctrl: pmic_clock_buffer_ctrl {
 		compatible = "mediatek,pmic_clock_buffer";
 		mediatek,clkbuf-quantity = <7>;
