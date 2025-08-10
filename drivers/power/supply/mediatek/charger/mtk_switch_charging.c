@@ -253,7 +253,11 @@ static void swchg_select_charging_current_limit(struct charger_manager *info)
 					&pdata->charging_current_limit,
 					&pdata->input_current_limit);
 	} else if (info->chr_type == CHARGING_HOST) {
+#ifdef CONFIG_HW_GADGET
 		port_mode = hw_usb_port_mode_get();
+#else
+		port_mode = 0;
+#endif
 		if (port_mode == HW_MANUFACTURE_PORT_MODE) {
 			pdata->input_current_limit =
 				info->data.usb_charger_current;
