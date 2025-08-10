@@ -753,6 +753,7 @@ int pack_ca_cert(int type, char *ca_cert, const char *path,
 	return message_size;
 }
 
+#ifdef CONFIG_DEFAULT_SECURITY_SELINUX
 int check_process_selinux_security(struct task_struct *ca_task,
 	const char *context)
 {
@@ -776,6 +777,7 @@ int check_process_selinux_security(struct task_struct *ca_task,
 	}
 	return 0;
 }
+#endif
 
 #define MAX_REF_COUNT (255)
 tc_ns_service *tc_ref_service_in_dev(tc_ns_dev_file *dev, unsigned char *uuid,

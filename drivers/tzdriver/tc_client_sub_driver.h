@@ -28,7 +28,16 @@ int calc_process_path_hash(unsigned char *data,
 	unsigned long data_len, char *digest, unsigned int dig_len);
 int pack_ca_cert(int type, char *ca_cert, const char *path,
 	struct task_struct *ca_task, const struct cred *cred);
+#ifdef CONFIG_DEFAULT_SECURITY_SELINUX
 int check_process_selinux_security(struct task_struct *ca_task, const char *context);
+#else
+static inline int check_process_selinux_security(struct task_struct *ca_task,
+	const char *context)
+{
+	// Just pretend the context matches what we expect, SELinux is not enabled
+	return 0;
+}
+#endif
 tc_ns_service *tc_find_service_in_dev(tc_ns_dev_file *dev,
 	const unsigned char *uuid, int uuid_size);
 tc_ns_service *tc_ref_service_in_dev(tc_ns_dev_file *dev, unsigned char *uuid,
