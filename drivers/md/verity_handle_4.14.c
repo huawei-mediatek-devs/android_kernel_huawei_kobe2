@@ -8,6 +8,7 @@
 #include <linux/delay.h>
 
 #define DM_MSG_PREFIX "oem_verity"
+#define PARAMETER_ERR (-1)
 
 #if defined(CONFIG_HUAWEI_DSM)
 #include <linux/jiffies.h>
@@ -31,7 +32,6 @@ static unsigned long g_err_count;
 #define HASH_ERR_VALUE 1
 #define ROW_DATA_LENGTH 16
 #define ROW_DATA_PER_HEX_LENGTH 3
-#define PARAMETER_ERR (-1)
 
 enum info_type {
 	CE_INFO = 0,
