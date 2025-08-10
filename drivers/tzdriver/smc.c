@@ -36,9 +36,7 @@
 #include "teek_ns_client.h"
 #include "tui.h"
 
-#ifdef CONFIG_TEELOG
 #include "tlogger.h"
-#endif
 #ifdef SECURITY_AUTH_ENHANCE
 #include <linux/crc32.h>
 #include "security_auth_enhance.h"

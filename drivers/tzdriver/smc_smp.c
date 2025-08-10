@@ -53,9 +53,7 @@
 #include "tui.h"
 #include "mailbox_mempool.h"
 #include "cmdmonitor.h"
-#ifdef CONFIG_TEELOG
 #include "tlogger.h"
-#endif
 #ifdef SECURITY_AUTH_ENHANCE
 #include "security_auth_enhance.h"
 #include "dynamic_mem.h"

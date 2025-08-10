@@ -21,8 +21,8 @@
 #define IMONITOR_TA_CRASH_EVENT_ID 901002003
 #define IMONITOR_MEMSTAT_EVENT_ID 940007001
 #define IMONITOR_TAMEMSTAT_EVENT_ID 940007002
-#include "tlogger.h"
 #endif
+#include "tlogger.h"
 #include "tc_ns_log.h"
 #include "smc.h"
 #include "tui.h"
